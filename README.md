@@ -60,11 +60,18 @@ wrap/unwrap, and the freeze authority is copied to the wrapped mint.
 cargo build-sbf
 ```
 
-Verifiable build:
+Verifiable build (the crate has no `solana-program` dependency, so the image is pinned explicitly):
 
 ```
-solana-verify build
-solana-verify verify-from-repo --program-id 4WMGnz33sRKHynF2an3kWmfZtd8eudTVCExtSmMWuaCc https://github.com/sipLinchik/darkpool-wrap
+solana-verify build --base-image solanafoundation/solana-verifiable-build:4.3.0
+solana-verify get-executable-hash target/deploy/darkpool_wrap.so
+# ac59d863472d93dd7e251f680d6417b3d21018dedef69971651181a6c982a8bc
+
+solana-verify verify-from-repo --remote \
+  --program-id 4WMGnz33sRKHynF2an3kWmfZtd8eudTVCExtSmMWuaCc \
+  --base-image solanafoundation/solana-verifiable-build:4.3.0 \
+  --library-name darkpool_wrap \
+  https://github.com/sipLinchik/darkpool-wrap
 ```
 
 ## License
