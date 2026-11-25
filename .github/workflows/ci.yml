@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  SOLANA_VERSION: v4.4.1
+  PROGRAM_ID: 4WMGnz33sRKHynF2an3kWmfZtd8eudTVCExtSmMWuaCc
+  EXPECTED_HASH: ac59d863472d93dd7e251f680d6417b3d21018dedef69971651181a6c982a8bc
+
+jobs:
+  test:
+    name: Build and test (44 checks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache Solana toolchain
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.local/share/solana
+            ~/.cache/solana
+          key: solana-${{ env.SOLANA_VERSION }}
+
+      - name: Install Solana CLI
+        run: |
+          if [ ! -x ~/.local/share/solana/install/active_release/bin/solana ]; then
+            sh -c "$(curl -sSfL https://release.anza.xyz/${SOLANA_VERSION}/install)"
+          fi
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
+
+      - name: Build program
+        run: cargo build-sbf
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tests/package-lock.json
+
+      - name: Run tests
+        working-directory: tests
+        run: |
+          npm ci
+          npm test
+
+  verifiable-build:
+    name: Reproducible build matches mainnet
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install solana-verify
+        run: cargo install solana-verify --locked --version 0.5.2
+
+      - name: Verifiable build
+        run: solana-verify build --base-image solanafoundation/solana-verifiable-build:4.3.0
+
+      - name: Compare executable hash
+        run: |
+          built=$(solana-verify get-executable-hash target/deploy/darkpool_wrap.so)
+          echo "built:    $built"
+          echo "expected: $EXPECTED_HASH"
+          test "$built" = "$EXPECTED_HASH"
+          onchain=$(solana-verify -u https://api.mainnet-beta.solana.com get-program-hash "$PROGRAM_ID")
+          echo "on-chain: $onchain"
+          test "$onchain" = "$EXPECTED_HASH"

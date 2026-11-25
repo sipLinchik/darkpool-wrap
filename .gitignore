@@ -1,4 +1,20 @@
+# build output
 /target
-*.json
-!package.json
 /verified
+
+# keys and local config: never commit
+*.json
+!tests/package.json
+!tests/package-lock.json
+.env
+.env.*
+*.pem
+
+# node
+node_modules/
+
+# editors / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp

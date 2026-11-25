@@ -1,0 +1,14 @@
+{
+  "name": "darkpool-wrap-tests",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "./run.sh"
+  },
+  "dependencies": {
+    "@solana/spl-token": "0.4.15",
+    "@solana/spl-token-metadata": "0.1.6",
+    "@solana/web3.js": "1.99.0"
+  }
+}
