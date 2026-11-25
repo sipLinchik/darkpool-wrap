@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/assets/banner.png" alt="Dark Pool · darkpool-wrap" width="100%"></p>
+
 <h1 align="center">darkpool-wrap</h1>
 
 <p align="center">
@@ -28,6 +30,11 @@ original. It holds no keys, has no admin instructions and has three instructions
 
 ## How it works
 
+<p align="center"><img src=".github/assets/how-it-works.png" alt="NVDAx → wrap 1:1 → wNVDAx → Helius Privacy Rings, and back via unwrap" width="100%"></p>
+
+<details>
+<summary>Escrow flow (text diagram)</summary>
+
 ```mermaid
 flowchart LR
     U[User wallet<br/>NVDAx] -- "wrap(amount)" --> E[(Escrow<br/>owned by authority PDA)]
@@ -35,6 +42,8 @@ flowchart LR
     W -- "unwrap(amount)<br/>burn first" --> E
     E -. "release same amount" .-> U
 ```
+
+</details>
 
 1. **Create.** Anyone calls `create_wrapped_mint` once per source mint. The wrapped mint is a PDA, and its decimals, freeze authority and metadata are copied on-chain from the source mint.
 2. **Wrap.** The user transfers `amount` of the source token into the escrow. The program measures how much the escrow actually received and mints exactly that much wrapped token.

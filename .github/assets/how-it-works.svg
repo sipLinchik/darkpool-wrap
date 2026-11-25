@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2F0501"/><stop offset="1" stop-color="#150201"/></linearGradient>
+    <linearGradient id="hot" x1="0" x2="1"><stop stop-color="#FF511F"/><stop offset="1" stop-color="#FDA026"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="20"/></filter>
+    <marker id="arrowHot" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#FF511F"/></marker>
+    <marker id="arrowSoft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#FDBF7E"/></marker>
+  </defs>
+  <rect width="1600" height="600" fill="url(#bg)"/>
+  <circle cx="1480" cy="210" r="230" fill="none" stroke="#FF511F" stroke-width="48" opacity=".18" filter="url(#glow)"/>
+  <svg x="72" y="56" width="40" height="40" viewBox="273.25 295.36 453.5 409.29"><g fill="#FF511F"><circle cx="665" cy="500" r="57.75"/><circle cx="582.5" cy="642.89" r="57.75"/><circle cx="417.5" cy="642.89" r="57.75"/><circle cx="335" cy="500" r="57.75"/><circle cx="417.5" cy="357.11" r="57.75"/><circle cx="582.5" cy="357.11" r="57.75"/><path d="M469.59 382.04A33.71 33.71 0 0 1 530.41 382.04V332.17A33.71 33.71 0 0 1 469.59 332.17Z"/><path d="M413.05 585.32A33.71 33.71 0 0 1 382.64 532.65L339.45 557.58A33.71 33.71 0 0 1 369.86 610.25Z"/><path d="M617.36 532.65A33.71 33.71 0 0 1 586.95 585.32L630.14 610.25A33.71 33.71 0 0 1 660.55 557.58Z"/></g></svg>
+  <text x="130" y="88" fill="#FEF6EE" font-family="Arial, sans-serif" font-size="27" font-weight="600">How darkpool-wrap works</text>
+  <text x="72" y="132" fill="#A8968C" font-family="monospace" font-size="15" letter-spacing="1.6">PUBLIC TOKEN · 1:1 WRAPPER · PRIVATE BALANCE</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="72" y="230" width="310" height="172" rx="18" fill="#3B0A04" stroke="#6F2416"/>
+    <text x="104" y="289" fill="#FEF6EE" font-size="35" font-weight="650">NVDAx</text>
+    <text x="104" y="327" fill="#FDBF7E" font-family="monospace" font-size="16">Token-2022</text>
+    <text x="104" y="357" fill="#A8968C" font-family="monospace" font-size="15">Pausable…</text>
+    <rect x="486" y="230" width="246" height="172" rx="18" fill="#551006" stroke="#FF511F"/>
+    <text x="609" y="309" text-anchor="middle" fill="#FEF6EE" font-size="34" font-weight="650">wrap 1:1</text>
+    <text x="609" y="347" text-anchor="middle" fill="#FDBF7E" font-family="monospace" font-size="14">darkpool-wrap</text>
+    <rect x="836" y="230" width="246" height="172" rx="18" fill="#3B0A04" stroke="#6F2416"/>
+    <text x="959" y="313" text-anchor="middle" fill="#FEF6EE" font-size="35" font-weight="650">wNVDAx</text>
+    <text x="959" y="349" text-anchor="middle" fill="#A8968C" font-family="monospace" font-size="14">wrapped 1:1</text>
+    <rect x="1186" y="230" width="342" height="172" rx="18" fill="#451006" stroke="#B51902"/>
+    <text x="1357" y="298" text-anchor="middle" fill="#FEF6EE" font-size="29" font-weight="650">Helius Privacy Rings</text>
+    <text x="1357" y="343" text-anchor="middle" fill="#FDBF7E" font-family="monospace" font-size="16">private balance</text>
+  </g>
+  <path d="M382 302H478" stroke="url(#hot)" stroke-width="4" marker-end="url(#arrowHot)"/>
+  <path d="M732 302H828" stroke="url(#hot)" stroke-width="4" marker-end="url(#arrowHot)"/>
+  <path d="M1082 302H1178" stroke="url(#hot)" stroke-width="4" marker-end="url(#arrowHot)"/>
+  <path d="M1182 445H746" stroke="#FDBF7E" stroke-width="2.5" marker-end="url(#arrowSoft)"/>
+  <path d="M472 445H386" stroke="#FDBF7E" stroke-width="2.5" marker-end="url(#arrowSoft)"/>
+  <text x="827" y="479" text-anchor="middle" fill="#FDBF7E" font-family="monospace" font-size="15" letter-spacing="1.5">UNWRAP 1:1</text>
+  <text x="72" y="542" fill="#A8968C" font-family="Arial, sans-serif" font-size="18">The wrapper preserves supply parity while the wrapped asset can sit on a private balance.</text>
+</svg>
