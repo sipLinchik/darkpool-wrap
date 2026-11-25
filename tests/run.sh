@@ -9,9 +9,14 @@ PROGRAM_ID=${PROGRAM_ID:-4WMGnz33sRKHynF2an3kWmfZtd8eudTVCExtSmMWuaCc}
 LEDGER=$(mktemp -d)
 solana-test-validator --reset --quiet --ledger "$LEDGER" --bpf-program "$PROGRAM_ID" "$SO" >/dev/null 2>&1 &
 VALIDATOR=$!
-trap 'kill $VALIDATOR 2>/dev/null; wait $VALIDATOR 2>/dev/null; rm -rf "$LEDGER"' EXIT
+cleanup() { kill "$VALIDATOR" 2>/dev/null || true; wait "$VALIDATOR" 2>/dev/null || true; rm -rf "$LEDGER"; }
+trap cleanup EXIT
 for _ in $(seq 60); do
   curl -sf -X POST -H 'content-type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"getHealth"}' http://127.0.0.1:8899 | grep -q ok && break
   sleep 1
 done
-PROGRAM_ID=$PROGRAM_ID node wrap.test.mjs
+rc=0
+PROGRAM_ID=$PROGRAM_ID node wrap.test.mjs || rc=$?
+cleanup
+trap - EXIT
+exit $rc
