@@ -57,7 +57,7 @@ flowchart LR
 | **Program ID** | [`4WMGnz33sRKHynF2an3kWmfZtd8eudTVCExtSmMWuaCc`](https://solscan.io/account/4WMGnz33sRKHynF2an3kWmfZtd8eudTVCExtSmMWuaCc) · [Explorer](https://explorer.solana.com/address/4WMGnz33sRKHynF2an3kWmfZtd8eudTVCExtSmMWuaCc) |
 | **Network** | Solana mainnet-beta |
 | **Loader** | BPF Upgradeable Loader, ProgramData [`3VG2zmtjWVNCDHkcD5d8MCKSFSXatxJmF4jsD3k8uXA1`](https://solscan.io/account/3VG2zmtjWVNCDHkcD5d8MCKSFSXatxJmF4jsD3k8uXA1) |
-| **Upgrade authority** | [`H45QBYAWphG5ARjJXJ6GPWN45DVV1NaRKrKfKZ1DnP83`](https://solscan.io/account/H45QBYAWphG5ARjJXJ6GPWN45DVV1NaRKrKfKZ1DnP83) (single key; handover to a Squads v4 2-of-3 multisig is planned) |
+| **Upgrade authority** | Squads v4 multisig, **2 of 3**: vault (index 0) [`8xwvi4KwQeRzXqVPpMh7aF3bvZ2S6kqSX8f9gZXnNiPq`](https://solscan.io/account/8xwvi4KwQeRzXqVPpMh7aF3bvZ2S6kqSX8f9gZXnNiPq) of multisig [`C8w27YNYvbqRHVBdbs9ZiTDWyRt9XwqJ3qHCZpCaBNe9`](https://solscan.io/account/C8w27YNYvbqRHVBdbs9ZiTDWyRt9XwqJ3qHCZpCaBNe9). Members: owner `2yv73QNUFz8JHqRkj4Lay4LQHxKZ4Wm6E9pSz5dCdZhX`, ops `H45QBYAWphG5ARjJXJ6GPWN45DVV1NaRKrKfKZ1DnP83`, backup `5YeWCogoKHkkLdfxjAeRzozXsLwpwZijt2sga8DoBJ5q`. Handover tx [`3c8W85py…`](https://solscan.io/tx/3c8W85pyen2aKTKNg6FzNcdTLLaXYN4bm5rQxdWNaEojCEvvSptHKqiYYG4dxw3555JbSRPvHiZAq8qhAt7pw7Sj) |
 | **Verified build** | [verify.osec.io](https://verify.osec.io/status/4WMGnz33sRKHynF2an3kWmfZtd8eudTVCExtSmMWuaCc) |
 | **Executable hash** | `ac59d863472d93dd7e251f680d6417b3d21018dedef69971651181a6c982a8bc` |
 
